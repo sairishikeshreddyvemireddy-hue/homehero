@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Customer Login | HomeHero AI</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    background:#111;
+    overflow:hidden;
+}
+
+.login-box{
+
+    width:400px;
+
+    padding:30px;
+
+    background:rgba(255,255,255,.12);
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    border-radius:20px;
+
+    box-shadow:0 8px 35px rgba(0,0,0,.4);
+
+    color:white;
+
+    z-index:2;
+
+}
+
+.login-box h1{
+
+    text-align:center;
+
+    margin-bottom:8px;
+
+    font-size:30px;
+
+}
+
+.login-box h3{
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+    font-size:18px;
+
+    font-weight:normal;
+
+}
+
+.info{
+
+    background:rgba(255,255,255,.08);
+
+    padding:15px;
+
+    border-radius:12px;
+
+    margin-bottom:20px;
+
+    line-height:1.8;
+
+}
+
+.input-group{
+
+    margin-bottom:15px;
+
+}
+
+.input-group label{
+
+    display:block;
+
+    margin-bottom:6px;
+
+    font-size:14px;
+
+}
+
+.input-group input{
+
+    width:100%;
+
+    padding:12px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:10px;
+
+    font-size:15px;
+
+}
+
+.options{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+    font-size:14px;
+
+}
+
+.options a{
+
+    color:#7fdcff;
+
+    text-decoration:none;
+
+}
+
+.login-btn{
+
+    width:100%;
+
+    padding:12px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#007BFF;
+
+    color:white;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.login-btn:hover{
+
+    background:#0056b3;
+
+}
+
+.signup-link{
+
+    text-align:center;
+
+    margin-top:18px;
+
+    font-size:15px;
+
+}
+
+.signup-link a{
+
+    color:#7fdcff;
+
+    text-decoration:none;
+
+}
+
+.signup-link a:hover{
+
+    text-decoration:underline;
+
+}
+
+.home-btn{
+
+    display:block;
+
+    text-align:center;
+
+    margin-top:18px;
+
+    padding:10px;
+
+    border:1px solid white;
+
+    border-radius:10px;
+
+    color:white;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+}
+
+.home-btn:hover{
+
+    background:white;
+
+    color:black;
+
+}
+
+</style>
+
+</head>
+
+<body id="vanta-bg">
+
+<div class="login-box">
+
+<h1>🏠 HomeHero AI</h1>
+
+<h3>Customer Login</h3>
+
+<div class="info">
+
+✔ Trusted Home Professionals<br>
+
+✔ Instant Booking<br>
+
+✔ Transparent Pricing<br>
+
+✔ Safe & Reliable Service
+
+</div>
+
+<form id="loginForm">
+
+<div class="input-group">
+
+<label>Email Address</label>
+
+<input type="email" placeholder="Enter your email" required>
+
+</div>
+
+<div class="input-group">
+
+<label>Password</label>
+
+<input type="password" placeholder="Enter your password" required>
+
+</div>
+
+<div class="options">
+
+<label>
+
+<input type="checkbox">
+
+Remember Me
+
+</label>
+
+<a href="#">Forgot Password?</a>
+
+</div>
+
+<button type="submit" class="login-btn">
+
+Login
+
+</button>
+
+</form>
+
+<div class="signup-link">
+
+Don't have an account?
+
+<a href="customer-signup.html">
+
+Create Account
+
+</a>
+
+</div>
+
+<a href="index.html" class="home-btn">
+
+⬅ Back to Home
+
+</a>
+
+</div>
+
+<!-- Three.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+
+<!-- Vanta -->
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.fog.min.js"></script>
+
+<script>
+
+VANTA.FOG({
+
+el:"#vanta-bg",
+
+mouseControls:true,
+
+touchControls:true,
+
+gyroControls:false,
+
+highlightColor:0xffffff,
+
+midtoneColor:0x6ba8d6,
+
+lowlightColor:0x2c5f7c,
+
+baseColor:0x1e3a5f,
+
+blurFactor:0.6,
+
+speed:1.0,
+
+zoom:1.2
+
+});
+
+</script>
+
+<script>
+
+document.getElementById("loginForm").addEventListener("submit", function(event){
+
+event.preventDefault();
+
+window.location.href="customer-dashboard.html";
+
+});
+
+</script>
+
+</body>
+
+</html>

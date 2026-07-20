@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Professional Sign Up | HomeHero AI</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+
+min-height:100vh;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+padding:40px;
+
+overflow-y:auto;
+
+background:linear-gradient(-45deg,#081229,#0f2d5a,#004d66,#081229);
+
+background-size:400% 400%;
+
+animation:bgMove 12s ease infinite;
+
+}
+
+@keyframes bgMove{
+
+0%{background-position:0% 50%;}
+
+50%{background-position:100% 50%;}
+
+100%{background-position:0% 50%;}
+
+}
+
+.container{
+
+width:760px;
+
+background:rgba(255,255,255,.10);
+
+backdrop-filter:20px;
+-webkit-backdrop-filter:20px;
+
+border-radius:25px;
+
+border:1px solid rgba(255,255,255,.2);
+
+padding:35px;
+
+color:white;
+
+box-shadow:
+0 20px 60px rgba(0,0,0,.45);
+
+animation:fadeUp .8s;
+
+}
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+h1{
+
+text-align:center;
+
+font-size:38px;
+
+margin-bottom:8px;
+
+}
+
+h2{
+
+text-align:center;
+
+font-weight:400;
+
+margin-bottom:35px;
+
+color:#d8ecff;
+
+}
+
+.section{
+
+margin-bottom:30px;
+
+}
+
+.section h3{
+
+margin-bottom:15px;
+
+font-size:20px;
+
+color:#7fe7ff;
+
+border-left:5px solid #27b0ff;
+
+padding-left:10px;
+
+}
+
+input:not([type=checkbox]):not([type=radio]),
+select{
+
+width:100%;
+
+padding:14px;
+
+margin-bottom:14px;
+
+border:none;
+
+border-radius:12px;
+
+font-size:15px;
+
+background:rgba(255,255,255,.12);
+
+color:white;
+
+outline:none;
+
+}
+
+input::placeholder{
+
+color:#d8d8d8;
+
+}
+
+select{
+
+cursor:pointer;
+
+}
+
+option{
+
+color:black;
+
+}
+
+.languages{
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:10px;
+
+}
+
+.languages label{
+
+font-size:16px;
+
+}
+
+.skills{
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:18px;
+
+}
+
+.skill-item{
+
+display:flex;
+
+flex-direction:column;
+
+}
+
+.skill-card{
+
+background:rgba(255,255,255,.08);
+
+padding:20px;
+
+border-radius:18px;
+
+text-align:center;
+
+cursor:pointer;
+
+transition:.35s;
+
+border:1px solid rgba(255,255,255,.15);
+
+font-size:16px;
+
+font-weight:500;
+
+}
+
+.skill-card:hover{
+
+transform:translateY(-6px) scale(1.04);
+
+background:#2563eb;
+
+}
+
+.skill-card.selected{
+
+background:linear-gradient(135deg,#2563eb,#06b6d4);
+
+border:2px solid white;
+
+box-shadow:0 0 25px rgba(37,99,235,.45);
+
+}
+
+.level-select{
+
+display:none;
+
+margin-top:10px;
+
+}
+
+.register-btn{
+
+width:100%;
+
+padding:16px;
+
+border:none;
+
+border-radius:14px;
+
+font-size:18px;
+
+font-weight:600;
+
+cursor:pointer;
+
+color:white;
+
+background:linear-gradient(90deg,#2563eb,#06b6d4);
+
+transition:.35s;
+
+}
+
+.register-btn:hover{
+
+transform:translateY(-4px);
+
+box-shadow:0 10px 30px rgba(37,99,235,.45);
+
+}
+
+.back-btn{
+
+display:block;
+
+margin-top:20px;
+
+text-align:center;
+
+text-decoration:none;
+
+padding:14px;
+
+border-radius:12px;
+
+border:1px solid rgba(255,255,255,.4);
+
+color:white;
+
+transition:.35s;
+
+}
+
+.back-btn:hover{
+
+background:white;
+
+color:#111;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🏠 HomeHero AI</h1>
+
+<h2>Become a HomeHero Professional</h2>
+
+<form>
+    <div class="section">
+
+<h3>👤 Personal Information</h3>
+
+<input type="text" placeholder="Full Name" required>
+
+<input type="email" placeholder="Email Address" required>
+
+<input type="tel" placeholder="Mobile Number" required>
+
+<input type="number" placeholder="Age" required>
+
+<select required>
+<option value="">Select Gender</option>
+<option>Male</option>
+<option>Female</option>
+<option>Other</option>
+</select>
+
+<input type="password" placeholder="Password" required>
+
+<input type="password" placeholder="Confirm Password" required>
+
+</div>
+
+
+<div class="section">
+
+<h3>💼 Experience</h3>
+
+<select required>
+<option value="">Select Experience</option>
+<option>0 - 1 Years</option>
+<option>2 - 5 Years</option>
+<option>5 - 10 Years</option>
+<option>10+ Years</option>
+</select>
+
+</div>
+
+
+<div class="section">
+
+<h3>🌍 Languages Known</h3>
+
+<div class="languages">
+
+<label><input type="checkbox"> English</label>
+<label><input type="checkbox"> Telugu</label>
+<label><input type="checkbox"> Hindi</label>
+<label><input type="checkbox"> Tamil</label>
+
+</div>
+
+</div>
+
+
+<div class="section">
+
+<h3>🛠 Select Your Skills</h3>
+
+<div class="skills">
+
+<div class="skill-item">
+<div class="skill-card">🍳 Cooking</div>
+<select class="level-select">
+<option>Select Level</option>
+<option>Beginner</option>
+<option>Intermediate</option>
+<option>Expert</option>
+</select>
+</div>
+
+<div class="skill-item">
+<div class="skill-card">🧹 Sweeping</div>
+<select class="level-select">
+<option>Select Level</option>
+<option>Beginner</option>
+<option>Intermediate</option>
+<option>Expert</option>
+</select>
+</div>
+
+<div class="skill-item">
+<div class="skill-card">🧼 Cleaning</div>
+<select class="level-select">
+<option>Select Level</option>
+<option>Beginner</option>
+<option>Intermediate</option>
+<option>Expert</option>
+</select>
+</div>
+
+<div class="skill-item">
+<div class="skill-card">🧺 Washing</div>
+<select class="level-select">
+<option>Select Level</option>
+<option>Beginner</option>
+<option>Intermediate</option>
+<option>Expert</option>
+</select>
+</div>
+
+<div class="skill-item">
+<div class="skill-card">🌱 Gardening</div>
+<select class="level-select">
+<option>Select Level</option>
+<option>Beginner</option>
+<option>Intermediate</option>
+<option>Expert</option>
+</select>
+</div>
+
+<div class="skill-item">
+<div class="skill-card">👶 Babysitting</div>
+<select class="level-select">
+<option>Beginner</option>
+<option>Intermediate</option>
+<option>Expert</option>
+</select>
+</div>
+
+<div class="skill-item">
+<div class="skill-card">👴 Elder Care</div>
+<select class="level-select">
+<option>Beginner</option>
+<option>Intermediate</option>
+<option>Expert</option>
+</select>
+</div>
+
+<div class="skill-item">
+<div class="skill-card">⚡ Electrician</div>
+<select class="level-select">
+<option>Beginner</option>
+<option>Intermediate</option>
+<option>Expert</option>
+</select>
+</div>
+
+<div class="skill-item">
+<div class="skill-card">🔧 Plumbing</div>
+<select class="level-select">
+<option>Beginner</option>
+<option>Intermediate</option>
+<option>Expert</option>
+</select>
+</div>
+
+<div class="skill-item">
+<div class="skill-card">🪚 Carpenter</div>
+<select class="level-select">
+<option>Beginner</option>
+<option>Intermediate</option>
+<option>Expert</option>
+</select>
+</div>
+
+<div class="skill-item">
+<div class="skill-card">❄ AC Repair</div>
+<select class="level-select">
+<option>Beginner</option>
+<option>Intermediate</option>
+<option>Expert</option>
+</select>
+</div>
+
+<div class="skill-item">
+<div class="skill-card">🎨 Painting</div>
+<select class="level-select">
+<option>Beginner</option>
+<option>Intermediate</option>
+<option>Expert</option>
+</select>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="section">
+
+<h3>📍 Service Area</h3>
+
+<input type="text" placeholder="City">
+
+<input type="text" placeholder="Area / Locality">
+
+</div>
+
+
+<div class="section">
+
+<h3>🟢 Availability</h3>
+
+<label><input type="radio" name="status"> Online</label>
+
+<br><br>
+
+<label><input type="radio" name="status"> Offline</label>
+
+</div>
+
+
+<button class="register-btn" type="submit">
+
+Register as Professional
+
+</button>
+
+<a href="professional-login.html" class="back-btn">
+
+⬅ Back to Login
+
+</a>
+
+</form>
+
+</div>
+
+<script>
+
+const cards=document.querySelectorAll(".skill-card");
+
+cards.forEach(card=>{
+
+card.addEventListener("click",()=>{
+
+card.classList.toggle("selected");
+
+const level=card.parentElement.querySelector(".level-select");
+
+if(card.classList.contains("selected")){
+
+card.innerHTML="✔ "+card.innerHTML.replace("✔ ","");
+
+level.style.display="block";
+
+}else{
+
+card.innerHTML=card.innerHTML.replace("✔ ","");
+
+level.style.display="none";
+
+level.selectedIndex=0;
+
+}
+
+});
+
+});
+
+</script>
+
+</body>
+
+</html>
