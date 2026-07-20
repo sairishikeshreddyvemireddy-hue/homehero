@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
@@ -9,107 +8,11 @@
 <title>Book Service | HomeHero AI</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
-
-body{
-
-background:linear-gradient(-45deg,#2563eb,#3b82f6,#6366f1,#8b5cf6);
-
-background-size:400% 400%;
-
-animation:bgMove 12s ease infinite;
-
-min-height:100vh;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-padding:30px;
-
-}
-
-@keyframes bgMove{
-
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
-
-}
-
-.container{
-
-width:700px;
-
-background:rgba(255,255,255,.15);
-
-backdrop-filter:blur(18px);
-
--webkit-backdrop-filter:blur(18px);
-
-padding:35px;
-
-border-radius:20px;
-
-color:white;
-
-box-shadow:0 15px 35px rgba(0,0,0,.35);
-
-}
-
-h1{
-
-text-align:center;
-
-margin-bottom:10px;
-
-font-size:34px;
-
-}
-
-h2{
-
-text-align:center;
-
-font-weight:400;
-
-margin-bottom:30px;
-
-color:#dbeafe;
-
-}
-
-.section{
-
-margin-bottom:25px;
-
-}
-
-.section h3{
-
-margin-bottom:12px;
-
-font-size:20px;
-
-color:#ffffff;
-
-}
-
-</style>
+<link rel="stylesheet" href="css/booking.css">
 
 </head>
 
@@ -119,9 +22,254 @@ color:#ffffff;
 
 <h1>🏠 HomeHero AI</h1>
 
-<h2>Book Your Service</h2>
+<h2 id="serviceTitle">Book Your Service</h2>
 
-<!-- More sections will be added here -->
+<form id="bookingForm">
+
+<div class="section">
+
+<h3>🤖 HomeHero AI Assistant</h3>
+
+<input
+type="text"
+id="aiInput"
+placeholder="Example: I need cleaning tomorrow morning">
+
+<button
+type="button"
+class="ai-btn"
+onclick="analyzeRequest()">
+
+Analyze Request
+
+</button>
+
+</div>
+
+<div class="section">
+
+<h3>🛠 Selected Service</h3>
+
+<div class="service-box">
+
+<span id="selectedService">
+
+Cleaning
+
+</span>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<h3>🏠 House Size</h3>
+
+<select id="houseSize">
+
+<option value="499">1 BHK - ₹499</option>
+
+<option value="699">2 BHK - ₹699</option>
+
+<option value="899">3 BHK - ₹899</option>
+
+<option value="1499">Villa - ₹1499</option>
+
+</select>
+
+</div>
+
+<div class="section">
+
+<h3>📅 Service Type</h3>
+
+<div class="options">
+
+<label>
+
+<input
+type="radio"
+name="serviceType"
+checked>
+
+Single Service
+
+</label>
+
+<label>
+
+<input
+type="radio"
+name="serviceType">
+
+Combo Service
+
+</label>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<h3>📆 Duration</h3>
+
+<select id="duration">
+
+<option>One Time</option>
+
+<option>Daily</option>
+
+<option>Weekly</option>
+
+<option>Monthly</option>
+
+</select>
+
+</div>
+
+<div class="section">
+
+<h3>📅 Booking Date</h3>
+
+<input
+type="date"
+id="bookingDate">
+
+</div>
+
+<div class="section">
+
+<h3>⏰ Preferred Time</h3>
+
+<select id="bookingTime">
+
+<option>08:00 AM</option>
+<option>09:00 AM</option>
+<option>10:00 AM</option>
+<option>11:00 AM</option>
+<option>12:00 PM</option>
+<option>02:00 PM</option>
+<option>04:00 PM</option>
+<option>06:00 PM</option>
+
+</select>
+
+</div>
+
+<!-- PART 2 STARTS HERE -->
+ <div class="section">
+
+<h3>📍 Service Address</h3>
+
+<textarea
+id="address"
+placeholder="Enter your complete address..."
+required></textarea>
+
+</div>
+
+<div class="section">
+
+<h3>📞 Contact Number</h3>
+
+<input
+type="tel"
+id="mobile"
+placeholder="Enter your mobile number"
+required>
+
+</div>
+
+<div class="section">
+
+<h3>📝 Additional Instructions</h3>
+
+<textarea
+id="instructions"
+placeholder="Example: Ring the doorbell twice, bring cleaning supplies..."></textarea>
+
+</div>
+
+<div class="section">
+
+<h3>💰 Estimated Price</h3>
+
+<div class="price-card" id="priceCard">
+
+₹499
+
+</div>
+
+</div>
+
+<button
+type="button"
+class="book-btn"
+onclick="bookNow()">
+
+🚀 Book Now
+
+</button>
+
+<a
+href="customer-dashboard.html"
+class="back-btn">
+
+⬅ Back to Dashboard
+
+</a>
+
+</form>
+
+</div>
+
+<script src="js/booking.js"></script>
+<!-- Three.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+
+<!-- Vanta NET -->
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+
+<script>
+VANTA.NET({
+    el: "body",
+    mouseControls: true,
+    touchControls: true,
+    gyroControls: false,
+    color: 0x4f9eff,
+    backgroundColor: 0x0f172a,
+    points: 14,
+    maxDistance: 22,
+    spacing: 18
+});
+</script>
+<!-- Booking Success Popup -->
+
+<div id="successPopup" class="success-popup">
+
+    <div class="success-card">
+
+        <h1>🎉 Booking Successful!</h1>
+
+        <p>Your booking has been confirmed.</p>
+
+        <hr>
+
+        <h3 id="popupService"></h3>
+
+        <p><strong>Booking ID:</strong> <span id="bookingId"></span></p>
+
+        <p><strong>Estimated Price:</strong> <span id="popupPrice"></span></p>
+
+        <p><strong>Status:</strong> Finding Best Professional...</p>
+
+        <button onclick="closePopup()">
+            Go to Dashboard
+        </button>
+
+    </div>
 
 </div>
 
