@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Professional Dashboard | HomeHero AI</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/professional.css">
+
+</head>
+
+<body>
+
+<div class="navbar">
+
+    <div class="logo">
+        🏠 HomeHero AI
+    </div>
+
+    <div class="nav-icons">
+        <span>🔔</span>
+        <span>👤</span>
+    </div>
+
+</div>
+
+<div class="container">
+
+    <!-- Welcome Card -->
+
+    <div class="welcome-card">
+
+        <h1 id="welcomeName">Welcome Professional 👋</h1>
+
+        <p>Manage your jobs, earnings and profile from one place.</p>
+
+    </div>
+
+    <!-- Statistics -->
+
+    <h2 class="section-title">
+
+        📊 Dashboard Overview
+
+    </h2>
+
+    <div class="stats">
+
+        <div class="stat-card">
+
+            <h3>Available Jobs</h3>
+
+            <h1 id="jobCount">0</h1>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h3>Today's Earnings</h3>
+
+            <h1 id="earningCount">₹0</h1>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h3>Completed Jobs</h3>
+
+            <h1 id="completedCount">0</h1>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h3>Rating</h3>
+
+            <h1>⭐ 5.0</h1>
+
+        </div>
+
+    </div>
+
+    <!-- Dynamic Booking Requests -->
+
+    <h2 class="section-title">
+
+        📅 Available Booking Requests
+
+    </h2>
+
+    <div id="jobContainer">
+
+        <div class="job-card">
+
+            <h3>No Bookings Available</h3>
+
+            <p>Waiting for customers...</p>
+
+        </div>
+
+    </div>
+
+    <div class="footer">
+
+        © 2026 HomeHero AI • Professional Portal
+
+    </div>
+
+</div>
+
+<!-- Dashboard Logic -->
+<script src="js/professional.js"></script>
+
+<!-- Three.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+
+<!-- Vanta Waves -->
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js"></script>
+
+<script>
+
+const professional = JSON.parse(localStorage.getItem("loggedInProfessional"));
+
+if(professional){
+
+document.getElementById("welcomeName").innerHTML =
+"Welcome, " + professional.fullName + " 👋";
+
+}
+
+VANTA.WAVES({
+
+el:"body",
+
+mouseControls:true,
+
+touchControls:true,
+
+gyroControls:false,
+
+minHeight:200,
+
+minWidth:200,
+
+scale:1,
+
+scaleMobile:1,
+
+color:0x0f766e,
+
+shininess:60,
+
+waveHeight:20,
+
+waveSpeed:0.9,
+
+zoom:0.85,
+
+backgroundColor:0x06141b
+
+});
+
+</script>
+
+</body>
+
+</html>

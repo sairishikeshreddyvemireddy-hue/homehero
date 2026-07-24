@@ -126,11 +126,92 @@ Painting
 
 <h2 class="section-title">
 
-📅 Recent Bookings
+📅 My Latest Booking
 
 </h2>
+<div class="timeline">
 
-<div class="booking">
+<div class="step completed" id="bookingStep">
+
+<div class="circle">✓</div>
+
+<div class="text">
+
+<h4>Booking Confirmed</h4>
+
+<p>Your booking has been placed.</p>
+
+</div>
+
+</div>
+
+<div class="line"></div>
+
+<div class="step" id="assignedStep">
+
+<div class="circle">2</div>
+
+<div class="text">
+
+<h4>Professional Assigned</h4>
+
+<p>Waiting for a professional...</p>
+
+</div>
+
+</div>
+
+<div class="line"></div>
+
+<div class="step" id="travelStep">
+
+<div class="circle">3</div>
+
+<div class="text">
+
+<h4>On The Way</h4>
+
+<p>Professional is travelling.</p>
+
+</div>
+
+</div>
+
+<div class="line"></div>
+
+<div class="step" id="startStep">
+
+<div class="circle">4</div>
+
+<div class="text">
+
+<h4>Work Started</h4>
+
+<p>Service has begun.</p>
+
+</div>
+
+</div>
+
+<div class="line"></div>
+
+<div class="step" id="completeStep">
+
+<div class="circle">5</div>
+
+<div class="text">
+
+<h4>Completed</h4>
+
+<p>Thank you for using HomeHero AI.</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="booking" id="latestBooking">
 
 No bookings yet.
 
@@ -157,15 +238,115 @@ Recommendations will appear here after your first booking.
 </div>
 
 <script>
+
 function bookService(service){
 
+    // Save selected service
     localStorage.setItem("selectedService", service);
 
+    // Open booking page
     window.location.href = "booking.html";
 
 }
+
+// ===============================
+// Load Latest Booking
+// ===============================
+
+async function loadLatestBooking(){
+
+    try{
+
+        const response = await fetch("http://localhost:8080/api/bookings/latest");
+
+        if(!response.ok){
+            return;
+        }
+
+        const booking = await response.json();
+
+        if(!booking){
+            return;
+        }
+
+        document.getElementById("latestBooking").innerHTML = `
+            <h3>${booking.service}</h3>
+
+            <p><strong>Status:</strong> ${booking.status}</p>
+
+            <p><strong>Date:</strong> ${booking.date}</p>
+
+            <p><strong>Time:</strong> ${booking.time}</p>
+
+            <p><strong>Address:</strong> ${booking.address}</p>
+        `;
+
+        updateTimeline(booking.status);
+
+    }
+
+    catch(error){
+
+        console.log(error);
+
+    }
+
+}
+
+// ===============================
+// Update Timeline
+// ===============================
+
+function updateTimeline(status){
+
+    const assigned=document.getElementById("assignedStep");
+    const travel=document.getElementById("travelStep");
+    const start=document.getElementById("startStep");
+    const complete=document.getElementById("completeStep");
+
+    if(status==="🟢 Professional Assigned"){
+
+        assigned.classList.add("completed");
+
+    }
+
+    if(status==="🚗 Professional On The Way"){
+
+        assigned.classList.add("completed");
+        travel.classList.add("completed");
+
+    }
+
+    if(status==="🛠 Work Started"){
+
+        assigned.classList.add("completed");
+        travel.classList.add("completed");
+        start.classList.add("completed");
+
+    }
+
+    if(status==="🎉 Service Completed"){
+
+        assigned.classList.add("completed");
+        travel.classList.add("completed");
+        start.classList.add("completed");
+        complete.classList.add("completed");
+
+    }
+
+}
+
+// ===============================
+// Auto Refresh Every 5 Seconds
+// ===============================
+
+loadLatestBooking();
+
+setInterval(loadLatestBooking,5000);
+
 </script>
 
+<script src="js/dashboard.js"></script>
 <script src="js/dashboard.js"></script>
 
 </body>

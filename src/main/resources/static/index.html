@@ -1,403 +1,543 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>HOME HERO</title>
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>HomeHero AI</title>
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
 
 <style>
-    /* Sidebar */
-
-.sidebar{
-
-    height:100%;
-
-    width:0;
-
-    position:fixed;
-
-    top:0;
-
-    left:0;
-
-    background:rgba(15,25,40,.70);
-
-    backdrop-filter:blur(18px);
-
-    -webkit-backdrop-filter:blur(18px);
-
-    border-right:1px solid rgba(255,255,255,.2);
-
-    overflow-x:hidden;
-    overflow-y:auto;
-
-    transition:0.4s;
-
-    padding-top:60px;
-
-    z-index:9999;
-
+    *{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
 }
 
-.sidebar a{
-
-    display:block;
-
-    color:white;
-
-    text-decoration:none;
-
-    font-size:24px;
-
-    padding:18px 30px;
-
-    transition:.3s;
-
-}
-
-.sidebar a:hover{
-
-    background:rgba(255,255,255,.15);
-
-    padding-left:45px;
-
-    border-left:5px solid cyan;
-
-    transition:.3s;
-
-}
-/* Account Dropdown */
-
-.account-menu{
-    display:none;
-    background:rgba(255,255,255,0.08);
-    margin:0 15px 10px 15px;
-    border-radius:10px;
-    overflow:hidden;
-}
-
-.account-menu a{
-    font-size:18px;
-    padding:14px 20px;
-    border-left:none;
-}
-
-.account-menu a:hover{
-    background:rgba(255,255,255,0.15);
-    padding-left:30px;
-}
-
-
-
-.close-btn{
-
-    position:absolute;
-
-    top:10px;
-
-    right:20px;
-
-    font-size:40px;
-
-    color:white;
-
-    background:none;
-
-    border:none;
-
-    cursor:pointer;
-
-}
-.profile{
-
-    text-align:center;
-
-    color:white;
-
-    margin-bottom:20px;
-
-}
-
-.profile img{
-
-    width:90px;
-
-    height:90px;
-
-    border-radius:50%;
-
-    border:4px solid white;
-
-    box-shadow:0px 0px 20px rgba(255,255,255,.5);
-
-}
-
-.profile h2{
-
-    margin-top:15px;
-
-    background:none;
-
-    backdrop-filter:none;
-
-    text-shadow:none;
-
-    font-size:22px;
-
-}
-
-.profile p{
-
-    color:#ddd;
-
-    font-size:15px;
-
-}
-
-.sidebar hr{
-
-    border:1px solid rgba(255,255,255,.2);
-
-    margin:20px;
-
+html,body{
+width:100%;
+height:100%;
+overflow:hidden;
 }
 
 body{
-    font-family: Arial, sans-serif;
-    margin:2px;
-    padding:2px;
-    min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:#08131f;
+color:white;
+position:relative;
+}
+
+/* Animated Background */
+
+#vanta-bg{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-2;
+}
+
+/* Dark Overlay */
+
+.overlay{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.25);
+z-index:-1;
+}
+
+/* Main Card */
+
+.main-card{
+
+width:90%;
+
+max-width:850px;
+
+padding:60px;
+
+border-radius:30px;
+
+background:rgba(255,255,255,.10);
+
+backdrop-filter:blur(20px);
+
+-webkit-backdrop-filter:blur(20px);
+
+border:1px solid rgba(255,255,255,.18);
+
+box-shadow:0 25px 60px rgba(0,0,0,.45);
+
+text-align:center;
+
+animation:fadeIn 1.2s;
+
+}
+
+/* Logo */
+
+.logo{
+
+font-size:70px;
+
+margin-bottom:15px;
+
 }
 
 /* Heading */
 
-h1{
-    color:white;
-    text-align:center;
-    font-size:40px;
-    padding:15px;
-    border-radius:15px;
+.main-card h1{
 
-    background:rgba(255,255,255,0.18);
-    backdrop-filter:blur(10px);
-    text-shadow:2px 2px 10px black;
-}
+font-size:52px;
 
-h2{
-    color:white;
-    font-size:24px;
-    padding:10px 20px;
-    width:fit-content;
-    margin:20px auto;
-    border-radius:10px;
+font-weight:700;
 
-    background:rgba(255,255,255,0.18);
-    backdrop-filter:blur(10px);
-    text-shadow:2px 2px 8px black;
-}
-
-/* Menu */
-
-.menu-btn{
-    position:fixed;
-    top:20px;
-    left:20px;
-    font-size:22px;
-    cursor:pointer;
-    border:none;
-    padding:10px 15px;
-    border-radius:8px;
-}
-
-.menu-btn:hover{
-    background:#7054eb;
-    color:white;
-}
-
-/* Account */
-
-.acc-btn{
-    position:fixed;
-    top:20px;
-    right:20px;
-    font-size:22px;
-    cursor:pointer;
-    border:none;
-    padding:10px 15px;
-    border-radius:8px;
-}
-
-.acc-btn:hover{
-    background:#9c2626;
-}
-
-/* Buttons */
-
-.buttons{
-    text-align:center;
-}
-
-.btn-1{
-
-    position:absolute;
-    top:350px;
-    left:400px;
-
-    padding:20px 45px;
-
-    font-size:24px;
-
-    text-decoration:none;
-
-    background:#007BFF;
-    color:white;
-
-    border-radius:12px;
-
-    transition:.3s;
-
-    box-shadow:0px 8px 20px rgba(0,0,0,.4);
+margin-bottom:10px;
 
 }
 
-.btn-1:hover{
+/* Subtitle */
 
-    background:#0056b3;
+.main-card p{
 
-    transform:scale(1.05);
+font-size:20px;
 
-}
+color:#e8eef8;
 
-.btn-2{
+margin-bottom:40px;
 
-    position:absolute;
-    top:350px;
-    right:300px;
-
-    padding:20px 45px;
-
-    font-size:24px;
-
-    text-decoration:none;
-
-    background:#007BFF;
-    color:white;
-
-    border-radius:12px;
-
-    transition:.3s;
-
-    box-shadow:0px 8px 20px rgba(0,0,0,.4);
+line-height:1.8;
 
 }
 
-.btn-2:hover{
+/* Get Started Button */
 
-    background:#0056b3;
+#getStarted{
 
-    transform:scale(1.05);
+padding:18px 60px;
+
+font-size:22px;
+
+font-weight:600;
+
+border:none;
+
+border-radius:50px;
+
+cursor:pointer;
+
+background:linear-gradient(135deg,#2563eb,#7c3aed);
+
+color:white;
+
+transition:.35s;
+
+box-shadow:0 10px 30px rgba(0,0,0,.35);
 
 }
 
+#getStarted:hover{
 
+transform:translateY(-6px) scale(1.04);
 
+box-shadow:0 18px 40px rgba(0,0,0,.5);
+
+}
+
+/* Role Section */
+
+#roleSection{
+
+display:none;
+
+animation:fadeIn 1s;
+
+}
+
+.role-title{
+
+font-size:40px;
+
+margin-bottom:40px;
+
+}
+
+.role-container{
+
+display:flex;
+
+justify-content:center;
+
+gap:35px;
+
+flex-wrap:wrap;
+
+}
+
+/* Role Card */
+
+.role-card{
+
+width:280px;
+
+padding:35px;
+
+background:rgba(255,255,255,.12);
+
+backdrop-filter:blur(15px);
+
+border-radius:22px;
+
+transition:.35s;
+
+cursor:pointer;
+
+border:1px solid rgba(255,255,255,.15);
+
+}
+
+.role-card:hover{
+
+transform:translateY(-10px);
+
+background:rgba(255,255,255,.20);
+
+box-shadow:0 15px 35px rgba(0,0,0,.35);
+
+}
+
+.role-icon{
+
+font-size:65px;
+
+margin-bottom:20px;
+
+}
+
+.role-card h2{
+
+font-size:28px;
+
+margin-bottom:15px;
+
+}
+
+.role-card p{
+
+font-size:16px;
+
+margin-bottom:25px;
+
+color:#e7edf8;
+
+}
+
+/* Continue Button */
+
+.role-btn{
+
+display:inline-block;
+
+padding:14px 35px;
+
+border-radius:40px;
+
+text-decoration:none;
+
+background:white;
+
+color:#2563eb;
+
+font-weight:600;
+
+transition:.3s;
+
+}
+
+.role-btn:hover{
+
+background:#2563eb;
+
+color:white;
+
+}
+
+/* Animation */
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+
+transform:translateY(35px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.main-card{
+
+padding:35px 25px;
+
+}
+
+.main-card h1{
+
+font-size:36px;
+
+}
+
+.main-card p{
+
+font-size:17px;
+
+}
+
+.logo{
+
+font-size:55px;
+
+}
+
+.role-title{
+
+font-size:30px;
+
+}
+
+.role-card{
+
+width:100%;
+
+}
+
+#getStarted{
+
+width:100%;
+
+}
+
+}
 </style>
 
 </head>
 
 <body id="vanta-bg">
-    <!-- Sidebar -->
-<div id="sidebar" class="sidebar">
 
-    <button class="close-btn" onclick="closeMenu()">&times;</button>
+<div class="overlay"></div>
 
-    <div class="profile">
+<div class="main-card">
 
-        <img src="https://i.pravatar.cc/120" alt="Profile">
+    <!-- =======================
+         Welcome Screen
+    ======================== -->
 
-        <h2>Welcome!</h2>
+    <div id="welcomeScreen">
 
-        <p>HomeHero User</p>
+        <div class="logo">
+            🏠
+        </div>
+
+        <h1>HomeHero AI</h1>
+
+        <p>
+
+            Smart Household Service Booking Platform
+
+            <br><br>
+
+            Book trusted professionals for your home with just a few clicks.
+
+        </p>
+
+        <button id="getStarted">
+
+            🚀 Get Started
+
+        </button>
 
     </div>
 
-    <hr>
+    <!-- =======================
+         Role Selection
+    ======================== -->
 
-    <a href="index.html">🏠 Home</a>
-    <a href="about.html">ℹ About Us</a>
-    <a href="contact.html">📞 Contact</a>
-    <a href="#" onclick="toggleAccountMenu()">👤 Account ▼</a>
+    <div id="roleSection">
 
-<div id="accountMenu" class="account-menu">
-    <a href="customer-login.html">👤 Customer Login</a>
-    <a href="professional-login.html">👷 Professional Login</a>
-    <a href="admin-login.html">🛠 Admin Login</a>
-</div>
+        <h1 class="role-title">
 
-    <hr>
+            Choose Your Role
 
-    <a href="#">⚙ Settings</a>
-    <a href="#">🚪 Logout</a>
+        </h1>
 
-</div>
+        <div class="role-container">
 
-<h1>HOME HERO : We Work For Your Home</h1>
+            <div class="role-card">
 
-<h2>CHOOSE THE WORK YOU ARE LOOKING FOR</h2>
+                <div class="role-icon">
 
-<button class="menu-btn" onclick="openMenu()">&#9776;</button>
+                    👤
 
-<button class="acc-btn">&#128100;</button>
+                </div>
 
-<div class="buttons">
+                <h2>Customer</h2>
 
-<a href="services.html" class="btn-1">Services</a>
+                <p>
 
-<a href="booking.html" class="btn-2">Book Now</a>
+                    Book trusted household professionals quickly and securely.
+
+                </p>
+
+                <a
+                href="customer-login.html"
+                class="role-btn">
+
+                Continue →
+
+                </a>
+
+            </div>
+
+            <div class="role-card">
+
+                <div class="role-icon">
+
+                    🔧
+
+                </div>
+
+                <h2>Professional</h2>
+
+                <p>
+
+                    Join HomeHero AI and start earning by offering your services.
+
+                </p>
+
+                <a
+                href="professional-login.html"
+                class="role-btn">
+
+                Continue →
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
 
 <!-- Three.js -->
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.fog.min.js"></script>
+
+<!-- Vanta -->
+
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
 
 <script>
-    function openMenu(){
-    document.getElementById("sidebar").style.width = "280px";
-}
 
-function closeMenu(){
-    document.getElementById("sidebar").style.width = "0";
-}
-function toggleAccountMenu() {
+// Get Started Animation
 
-    var menu = document.getElementById("accountMenu");
+document
+.getElementById("getStarted")
+.addEventListener("click", function(){
 
-    if (menu.style.display === "block") {
-        menu.style.display = "none";
-    } else {
-        menu.style.display = "block";
-    }
+const welcome =
+document.getElementById("welcomeScreen");
 
-}
+const role =
+document.getElementById("roleSection");
 
-VANTA.FOG({
-  el: "#vanta-bg",
-  mouseControls: true,
-  touchControls: true,
-  gyroControls: false,
+welcome.style.transition = "all .8s ease";
+welcome.style.opacity = "0";
+welcome.style.transform = "translateY(-40px)";
 
-  highlightColor: 0xffffff,
-  midtoneColor: 0x6ba8d6,
-  lowlightColor: 0x2c5f7c,
-  baseColor: 0x1e3a5f,
+setTimeout(function(){
 
-  blurFactor: 0.6,
-  speed: 1.0,
-  zoom: 1.2
+welcome.style.display = "none";
+
+role.style.display = "block";
+
+role.style.opacity = "0";
+role.style.transform = "translateY(40px)";
+
+setTimeout(function(){
+
+role.style.transition = "all .8s ease";
+role.style.opacity = "1";
+role.style.transform = "translateY(0)";
+
+},50);
+
+},800);
+
 });
+
+// Animated Background
+
+VANTA.GLOBE({
+
+el:"#vanta-bg",
+
+mouseControls:true,
+
+touchControls:true,
+
+gyroControls:false,
+
+minHeight:200,
+
+minWidth:200,
+
+backgroundColor:0x061221,
+
+color:0x4ea3ff,
+
+color2:0xffffff,
+
+size:1.2
+
+});
+
 </script>
 
 </body>
+
 </html>

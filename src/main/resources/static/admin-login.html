@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Login | HomeHero AI</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/admin.css">
+
+</head>
+
+<body>
+
+<div class="login-card">
+
+<div class="logo">
+
+🏠 HomeHero AI
+
+</div>
+
+<h2>Administrator Portal</h2>
+
+<p class="subtitle">
+
+Manage customers, professionals and bookings
+
+</p>
+
+<form onsubmit="return false;">
+
+<div class="input-group">
+
+<label>👤 Admin ID</label>
+
+<input
+type="text"
+id="adminId"
+placeholder="Enter Admin ID"
+autocomplete="username"
+required>
+
+</div>
+
+<div class="input-group">
+
+<label>🔒 Password</label>
+
+<input
+type="password"
+id="adminPassword"
+placeholder="Enter Password"
+autocomplete="current-password"
+required>
+
+</div>
+
+<button
+type="button"
+class="login-btn"
+onclick="adminLogin()">
+
+LOGIN
+
+</button>
+
+</form>
+
+<a
+href="index.html"
+class="back-btn">
+
+⬅ Back to Home
+
+</a>
+
+</div>
+
+<script src="js/admin.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.fog.min.js"></script>
+
+<script>
+
+VANTA.FOG({
+
+el:"body",
+
+mouseControls:true,
+
+touchControls:true,
+
+gyroControls:false,
+
+highlightColor:0xffb703,
+
+midtoneColor:0x1e293b,
+
+lowlightColor:0x0f172a,
+
+baseColor:0x020617,
+
+blurFactor:0.65,
+
+speed:1.1,
+
+zoom:1.05
+
+});
+
+</script>
+
+</body>
+</html>
